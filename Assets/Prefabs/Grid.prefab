@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2306727328242843790}
   - component: {fileID: 2306727328242843791}
   - component: {fileID: 448243897}
+  - component: {fileID: 455526204}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -61,6 +62,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whatToInstantiate: {fileID: 6282492978700713770, guid: 720bb98ca737c6e4f8db063b38a21f47, type: 3}
   grid: {fileID: 2306727328242843791}
+--- !u!114 &455526204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306727328242843776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb8eb0f63cea1d4690969e56e66d95c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notPlaceableTiles: {fileID: 11400000, guid: 351e89e03411bd244b0e6f8e65569c15, type: 2}
+  turretTile: {fileID: 11400000, guid: 22787500b4c801643ace89a6ffac2ff3, type: 2}
+  objectToPlace: {fileID: 2496907185632401345, guid: 63229aa50852696499340f6d61bcba75, type: 3}
+  grid: {fileID: 2306727328242843791}
+  tilemap: {fileID: 2306727328980216042}
+  placeTurretMode: 1
 --- !u!1 &2306727328980216045
 GameObject:
   m_ObjectHideFlags: 0
