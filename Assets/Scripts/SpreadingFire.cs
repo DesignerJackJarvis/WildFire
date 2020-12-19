@@ -10,6 +10,7 @@ public class SpreadingFire : MonoBehaviour
     public GameObject fireGameObject;
     public static Tilemap FireTilemap;
     public TileBase tileBase;
+    public NotPlaceAble notBurnable;
     public float chanceToSpread;
     public int spreadRate = 50;
     public float spreadToFireBias = 1000;
@@ -18,7 +19,17 @@ public class SpreadingFire : MonoBehaviour
 
     private bool CanSpawn(Vector3Int location)
     {
-        return location.x <= _maxBorder.x && location.y <= _maxBorder.y && location.x >= _minBorder.x && location.y >= _minBorder.y;
+        return location.x < _maxBorder.x && location.y < _maxBorder.y && location.x >= _minBorder.x && location.y >= _minBorder.y;
+    }
+    
+    private bool IsAvailable(TileBase tileBase1, TileBase tileBase2)
+    {
+        if (notBurnable.tiles.Any(tile => tile == tileBase1 || tile == tileBase2))
+        {
+            return false;
+        }
+
+        return tileBase2 != null;
     }
     private void Awake()
     {
@@ -58,7 +69,7 @@ public class SpreadingFire : MonoBehaviour
                             Random.Range(fireTile.y - 1, fireTile.y + 2), fireTile.z);
                     } while (!CanSpawn(location) || location.x != fireTile.x && location.y != fireTile.y);
 
-                    if (FireTilemap.GetTile(location) == tileBase) continue;
+                    if (!IsAvailable(FireTilemap.GetTile(location), PlacingTurret.tilemap.GetTile(location))) continue;
                     FireTilemap.SetTile(location, tileBase);
                     var fire = Instantiate(fireGameObject, transform);
                     fire.transform.position = FireTilemap.CellToWorld(location) + new Vector3(0.5f, 0.5f, 0);

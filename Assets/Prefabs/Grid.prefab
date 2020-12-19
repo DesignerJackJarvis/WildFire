@@ -416,6 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireGameObject: {fileID: 6282492978700713770, guid: 720bb98ca737c6e4f8db063b38a21f47, type: 3}
   tileBase: {fileID: 11400000, guid: 0a7d92e4a3e10ef45b22205d431424c1, type: 2}
+  notBurnable: {fileID: 11400000, guid: fdb125e10115eff4181674064949d792, type: 2}
   chanceToSpread: 0.1
   spreadRate: 250
   spreadToFireBias: 10
