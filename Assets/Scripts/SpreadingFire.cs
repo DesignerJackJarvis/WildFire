@@ -10,10 +10,11 @@ public class SpreadingFire : MonoBehaviour
     public GameObject fireGameObject;
     public static Tilemap FireTilemap;
     public TileBase tileBase;
-    public NotPlaceAble notBurnable;
+    public NotPlaceAble notBurnable, damageAbleTiles;
     public float chanceToSpread;
     public int spreadRate = 50;
     public float spreadToFireBias = 1000;
+    public float damage = 5;
     private Vector3Int _maxBorder, _minBorder;
     private int _tick;
 
@@ -30,6 +31,11 @@ public class SpreadingFire : MonoBehaviour
         }
 
         return tileBase2 != null;
+    }
+
+    private bool IsDamageAble(TileBase tileBase)
+    {
+        return damageAbleTiles.tiles.Any(tile => tile == tileBase);
     }
     private void Awake()
     {
@@ -70,10 +76,22 @@ public class SpreadingFire : MonoBehaviour
                     } while (!CanSpawn(location) || location.x != fireTile.x && location.y != fireTile.y);
 
                     if (!IsAvailable(FireTilemap.GetTile(location), PlacingTurret.tilemap.GetTile(location))) continue;
+                    if (IsDamageAble(PlacingTurret.tilemap.GetTile(location)))
+                    {
+                        var grid = FindObjectOfType<Grid>();
+                        var position = grid.CellToWorld(location);
+                        var damageAbles = grid.GetComponentsInChildren<IDamageAble>();
+                        if (damageAbles.Where(damageable => (position - damageable.GetPos()).magnitude < 0.55f).Any(damageable => !damageable.TakeDamage(damage)))
+                        {
+                            continue;
+                        }
+                    }
+                    
                     FireTilemap.SetTile(location, tileBase);
                     var fire = Instantiate(fireGameObject, transform);
                     fire.transform.position = FireTilemap.CellToWorld(location) + new Vector3(0.5f, 0.5f, 0);
                     Debug.Log(location);
+
                 }
             }
         }
