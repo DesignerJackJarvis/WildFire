@@ -13,16 +13,22 @@ public class SpreadingFire : MonoBehaviour
     public float chanceToSpread;
     public int spreadRate = 50;
     public float spreadToFireBias = 1000;
-    public Vector3Int maxBorder, minBorder;
+    private Vector3Int _maxBorder, _minBorder;
     private int _tick;
 
     private bool CanSpawn(Vector3Int location)
     {
-        return location.x <= maxBorder.x && location.y <= maxBorder.y && location.x >= minBorder.x && location.y >= minBorder.y;
+        return location.x <= _maxBorder.x && location.y <= _maxBorder.y && location.x >= _minBorder.x && location.y >= _minBorder.y;
     }
     private void Awake()
     {
         FireTilemap = GetComponent<Tilemap>();
+    }
+
+    private void Start()
+    {
+        _maxBorder = PlacingTurret.tilemap.cellBounds.max;
+        _minBorder = PlacingTurret.tilemap.cellBounds.min;
     }
 
     private void FixedUpdate()
