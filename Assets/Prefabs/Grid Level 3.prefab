@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4938373638219925717, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4938373638219925717, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6424355991856705652, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: spreadRate
@@ -3397,11 +3397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7027387214785334825, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: m_Tiles.Array.data[0].first.x
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7027387214785334825, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: m_Tiles.Array.data[0].first.y
-      value: -5
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 7027387214785334825, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: m_TileAssetArray.Array.data[0].m_Data
