@@ -24,10 +24,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6424355991856705652, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
-      propertyPath: spreadRate
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6424355991856705652, guid: b6c6fb0bb7f59fe47a6e73df8b4e2e57, type: 3}
       propertyPath: maxBorder.x
       value: 5
       objectReference: {fileID: 0}

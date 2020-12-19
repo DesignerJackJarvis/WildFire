@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tile: {fileID: 11400000, guid: a296e2abefa432748a1ff1a33bfe6ed7, type: 2}
-  health: 50
+  health: 20
