@@ -20,7 +20,7 @@ public class SpreadingFire : MonoBehaviour
     {
         return location.x <= maxBorder.x && location.y <= maxBorder.y && location.x >= minBorder.x && location.y >= minBorder.y;
     }
-    private void Start()
+    private void Awake()
     {
         FireTilemap = GetComponent<Tilemap>();
     }
@@ -36,7 +36,7 @@ public class SpreadingFire : MonoBehaviour
                 for (var e = 0; e < FireTilemap.size.y; e++) 
                 {
                     var tile = FireTilemap.GetTile(new Vector3Int(origin.x + i, origin.y + e, 0));
-                    if (tile == null) continue;
+                    if (tile == null || tile != tileBase) continue;
                     fireTiles.Add(new Vector3Int(origin.x + i, origin.y + e, 0));
                 }
             }
