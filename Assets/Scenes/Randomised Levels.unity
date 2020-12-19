@@ -123,6 +123,95 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &1587019927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566849, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043381566863, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_Name
+      value: Grid Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[1].m_RefCount
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_TileAssetArray.Array.data[5].m_RefCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_Tiles.Array.data[37].second.m_TileIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_Tiles.Array.data[38].second.m_TileIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[2].m_RefCount
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[4].m_RefCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_Tiles.Array.data[37].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 777714043715823077, guid: e1be60404e4e35d458434057a8c32145, type: 3}
+      propertyPath: m_Tiles.Array.data[38].second.m_TileSpriteIndex
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1be60404e4e35d458434057a8c32145, type: 3}
 --- !u!1 &1863393389
 GameObject:
   m_ObjectHideFlags: 0
