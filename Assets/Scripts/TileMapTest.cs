@@ -7,7 +7,7 @@ public class TileMapTest : MonoBehaviour
     public Tile tile;
     public Vector3Int position;
 
-    private void Start()
+    /*private void Start()
     {
         Debug.Log(tileMap.size);
     }
@@ -18,5 +18,5 @@ public class TileMapTest : MonoBehaviour
         {
             tileMap.SetTile(position, tile);
         }
-    }
+    }*/
 }

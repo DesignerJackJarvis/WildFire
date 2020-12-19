@@ -41,11 +41,18 @@ public class SpreadingFire : MonoBehaviour
                 }
             }
 
-            foreach (var location in fireTiles.Select(fireTile => new Vector3Int(Random.Range(fireTile.x - 1, fireTile.x + 2),
-                Random.Range(fireTile.y - 1, fireTile.y + 2), fireTile.z)))
+            foreach (var fireTile in fireTiles)
             {
-                if (Random.Range(0f, 1f) < chanceToSpread / fireTiles.Count + spreadToFireBias && CanSpawn(location))
+                var location = new Vector3Int();
+                if (Random.Range(0f, 1f) < chanceToSpread / fireTiles.Count + spreadToFireBias)
                 {
+                    do
+                    {
+                        location = new Vector3Int(Random.Range(fireTile.x - 1, fireTile.x + 2),
+                            Random.Range(fireTile.y - 1, fireTile.y + 2), fireTile.z);
+                    } while (!CanSpawn(location) || location.x != fireTile.x && location.y != fireTile.y);
+
+                    if (FireTilemap.GetTile(location) == tileBase) continue;
                     FireTilemap.SetTile(location, tileBase);
                     var fire = Instantiate(fireGameObject, transform);
                     fire.transform.position = FireTilemap.CellToWorld(location) + new Vector3(0.5f, 0.5f, 0);
@@ -53,7 +60,6 @@ public class SpreadingFire : MonoBehaviour
                 }
             }
         }
-
         _tick++;
     }
 }

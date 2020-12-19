@@ -12,7 +12,7 @@ public class StationaryTower : MonoBehaviour
         if (_tick % attackInterval == 0)
         {
             var ray = Physics2D.Raycast(transform.position, direction, range);
-            GetComponentInChildren<LineRenderer>().SetPositions(new Vector3[]{transform.position, direction * range});
+            GetComponentInChildren<LineRenderer>().SetPositions(new Vector3[]{transform.position, transform.position + direction * range});
             {
                 if (ray.collider != null)
                 {
