@@ -2,9 +2,9 @@
 
 public class StationaryTower : MonoBehaviour, IDamageAble
 {
-    public float attackInterval;
+    public int attackInterval;
     public float damage;
-    private float _tick;
+    private int _tick;
     public Vector3 direction;
     public float range;
     public float health = 50;
@@ -16,8 +16,8 @@ public class StationaryTower : MonoBehaviour, IDamageAble
             health = value;
             if (health <= 0)
             {
-                var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
-                PlacingTurret.tilemap.SetTile(location, null);
+                //var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
+                //PlacingTurret.tilemap.SetTile(location, null);
                 Destroy(transform.gameObject);
             }
         }
@@ -33,7 +33,7 @@ public class StationaryTower : MonoBehaviour, IDamageAble
                 {
                     if (ray.collider.TryGetComponent<Fire>(out var fire))
                     {
-                        fire.TakeDamage(damage);
+                        fire.Health -= damage;
                     }
                 }
             }

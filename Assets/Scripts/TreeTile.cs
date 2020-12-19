@@ -13,8 +13,8 @@ public class TreeTile : MonoBehaviour, IDamageAble
             health = value;
             if (health <= 0)
             {
-                var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
-                PlacingTurret.tilemap.SetTile(location, null);
+                //var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
+                //PlacingTurret.tilemap.SetTile(location, null);
                 Destroy(transform.gameObject);
             }
         }

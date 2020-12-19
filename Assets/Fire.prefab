@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a040546eb0d6fe4bb032d4468223923, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 15
 --- !u!1 &6282492978700713770
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +83,7 @@ GameObject:
   - component: {fileID: 7995179808264492363}
   - component: {fileID: -4807786329205056325}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
