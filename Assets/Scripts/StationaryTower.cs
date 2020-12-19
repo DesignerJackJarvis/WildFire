@@ -1,12 +1,27 @@
 ﻿using UnityEngine;
 
-public class StationaryTower : MonoBehaviour
+public class StationaryTower : MonoBehaviour, IDamageAble
 {
     public float attackInterval;
     public float damage;
     private float _tick;
     public Vector3 direction;
     public float range;
+    public float health = 50;
+    public float Health
+    {
+        get => health;
+        set
+        {
+            health = value;
+            if (health <= 0)
+            {
+                var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
+                PlacingTurret.tilemap.SetTile(location, null);
+                Destroy(transform.parent.gameObject);
+            }
+        }
+    }
     private void FixedUpdate()
     {
         if (_tick % attackInterval == 0)
@@ -18,11 +33,25 @@ public class StationaryTower : MonoBehaviour
                 {
                     if (ray.collider.TryGetComponent<Fire>(out var fire))
                     {
-                        fire.Health -= damage;
+                        fire.TakeDamage(damage);
                     }
                 }
             }
         }
         _tick++;
     }
+
+    public bool TakeDamage(float damage)
+    {
+        if (damage >= Health)
+        {
+            Health -= damage;
+            return true;
+        }
+
+        Health -= damage;
+        return false;
+    }
+    
+    public Vector3 GetPos() => transform.position;
 }

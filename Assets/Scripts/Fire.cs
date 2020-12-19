@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class Fire : MonoBehaviour, IDamageAble
 {
     [SerializeField] private float health = 10;
 
@@ -20,4 +20,18 @@ public class Fire : MonoBehaviour
             }
         }
     }
+
+    public bool TakeDamage(float damage)
+    {
+        if (damage >= Health)
+        {
+           Health -= damage;
+           return true;
+        }
+
+        Health -= damage;
+        return false;
+    }
+
+    public Vector3 GetPos() => transform.position;
 }

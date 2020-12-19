@@ -36,7 +36,7 @@ public class PlacingTurret : MonoBehaviour
             var position = grid.WorldToCell(worldPoint);
             if (IsAvailable(tilemap.GetTile(position), SpreadingFire.FireTilemap.GetTile(position)))
             {
-                var instantiate = Instantiate(objectToPlace);
+                var instantiate = Instantiate(objectToPlace, tilemap.transform);
                 var cellToWorld = grid.CellToWorld(position);
                 SpreadingFire.FireTilemap.SetTile(position, turretTile);
                 instantiate.transform.position = cellToWorld + new Vector3(0.5f, 0.5f); 
