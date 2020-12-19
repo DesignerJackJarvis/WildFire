@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,8 +9,13 @@ public class PlacingTurret : MonoBehaviour
     public TileBase turretTile;
     public GameObject objectToPlace;
     public Grid grid;
-    public Tilemap tilemap;
+    public static Tilemap tilemap;
     public bool placeTurretMode = true;
+
+    private void Awake()
+    {
+        tilemap = GetComponent<Tilemap>();
+    }
 
     private bool IsAvailable(TileBase tileBase1, TileBase tileBase2)
     {
