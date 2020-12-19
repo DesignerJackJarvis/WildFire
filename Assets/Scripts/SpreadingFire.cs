@@ -81,7 +81,7 @@ public class SpreadingFire : MonoBehaviour
                         var grid = FindObjectOfType<Grid>();
                         var position = grid.CellToWorld(location);
                         var damageAbles = grid.GetComponentsInChildren<IDamageAble>();
-                        if (damageAbles.Where(damageable => (position - damageable.GetPos()).magnitude < Mathf.Abs(0.55f)).Any(damageable => !damageable.TakeDamage(damage)))
+                        if (damageAbles.Where(damageable => (position - damageable.GetPos()).magnitude < Mathf.Abs(1f)).Any(damageable => !damageable.TakeDamage(damage)))
                         {
                             continue;
                         }

@@ -419,6 +419,6 @@ MonoBehaviour:
   notBurnable: {fileID: 11400000, guid: fdb125e10115eff4181674064949d792, type: 2}
   damageAbleTiles: {fileID: 11400000, guid: 351e89e03411bd244b0e6f8e65569c15, type: 2}
   chanceToSpread: 0.1
-  spreadRate: 250
+  spreadRate: 100
   spreadToFireBias: 10
   damage: 5
