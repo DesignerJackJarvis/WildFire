@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb8eb0f63cea1d4690969e56e66d95c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notPlaceableTiles: {fileID: 11400000, guid: 351e89e03411bd244b0e6f8e65569c15, type: 2}
+  notPlaceableTiles: {fileID: 11400000, guid: 975c4cd93a1d9f94c91e0143da70aa05, type: 2}
   turretTile: {fileID: 11400000, guid: 22787500b4c801643ace89a6ffac2ff3, type: 2}
   objectToPlace: {fileID: 2496907185632401345, guid: 63229aa50852696499340f6d61bcba75, type: 3}
   grid: {fileID: 2306727328242843791}
@@ -417,6 +417,8 @@ MonoBehaviour:
   fireGameObject: {fileID: 6282492978700713770, guid: 720bb98ca737c6e4f8db063b38a21f47, type: 3}
   tileBase: {fileID: 11400000, guid: 0a7d92e4a3e10ef45b22205d431424c1, type: 2}
   notBurnable: {fileID: 11400000, guid: fdb125e10115eff4181674064949d792, type: 2}
+  damageAbleTiles: {fileID: 11400000, guid: 351e89e03411bd244b0e6f8e65569c15, type: 2}
   chanceToSpread: 0.1
   spreadRate: 250
   spreadToFireBias: 10
+  damage: 5

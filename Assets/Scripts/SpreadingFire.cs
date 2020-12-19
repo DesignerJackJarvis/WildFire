@@ -76,12 +76,12 @@ public class SpreadingFire : MonoBehaviour
                     } while (!CanSpawn(location) || location.x != fireTile.x && location.y != fireTile.y);
 
                     if (!IsAvailable(FireTilemap.GetTile(location), PlacingTurret.tilemap.GetTile(location))) continue;
-                    if (IsDamageAble(PlacingTurret.tilemap.GetTile(location)))
+                    if (IsDamageAble(FireTilemap.GetTile(location)))
                     {
                         var grid = FindObjectOfType<Grid>();
                         var position = grid.CellToWorld(location);
                         var damageAbles = grid.GetComponentsInChildren<IDamageAble>();
-                        if (damageAbles.Where(damageable => (position - damageable.GetPos()).magnitude < 0.55f).Any(damageable => !damageable.TakeDamage(damage)))
+                        if (damageAbles.Where(damageable => (position - damageable.GetPos()).magnitude < Mathf.Abs(0.55f)).Any(damageable => !damageable.TakeDamage(damage)))
                         {
                             continue;
                         }

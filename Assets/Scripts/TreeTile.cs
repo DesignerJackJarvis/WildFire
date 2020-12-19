@@ -15,7 +15,7 @@ public class TreeTile : MonoBehaviour, IDamageAble
             {
                 var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
                 PlacingTurret.tilemap.SetTile(location, null);
-                Destroy(transform.parent.gameObject);
+                Destroy(transform.gameObject);
             }
         }
     }
