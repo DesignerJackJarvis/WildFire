@@ -18,7 +18,7 @@ public class Win : MonoBehaviour
             var newTime = minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString();
             _message =
                 "You Had No Previous High Score \n" +
-                $"Your Time Was {newTime} And You Had {treesRemaining}";
+                $"Your Time Was {newTime} And You Had {treesRemaining} Trees Remaining";
         }
         else if (highScore.treesRemaining > treesRemaining || highScore.time < time)
         {

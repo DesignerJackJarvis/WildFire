@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8961881429130754246}
   - component: {fileID: 2926004582688794853}
   - component: {fileID: 8229275002042233960}
+  - component: {fileID: 724748461307678201}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -187,6 +188,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &724748461307678201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306727328242843776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae24d41c5c5d6b44cbfffad0a7a4d06f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  treesRemaining: 0
+  time: 0
 --- !u!1 &2306727328980216045
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +416,7 @@ MonoBehaviour:
   grassToTreeRatio: 10
   tree: {fileID: 5703715265020906471, guid: 51afe8278adadbd4c94348b6bbb6fca6, type: 3}
   treeTile: {fileID: 11400000, guid: a296e2abefa432748a1ff1a33bfe6ed7, type: 2}
+  _alreadySpawnedPlaces: []
 --- !u!1 &4875653937544628974
 GameObject:
   m_ObjectHideFlags: 0
