@@ -106,9 +106,9 @@ public class SpreadingFire : MonoBehaviour
                     if (IsDamageAble(FireTilemap.GetTile(location)))
                     {
                         var grid = FindObjectOfType<Grid>();
-                        var position = grid.CellToWorld(location);
+                        var position = FireTilemap.CellToWorld(location);
                         var damageAbles = grid.GetComponentsInChildren<IDamageAble>();
-                        if (damageAbles.Where(damageable => (position - damageable.GetPos()).magnitude < Mathf.Abs(1f)).Any(damageable => !damageable.TakeDamage(damage)))
+                        if (damageAbles.Where(damageable => position + new Vector3(0.5f, 0.5f, 0) == damageable.GetPos()).Any(damageable => !damageable.TakeDamage(damage)))
                         {
                             continue;
                         }
@@ -117,8 +117,6 @@ public class SpreadingFire : MonoBehaviour
                     FireTilemap.SetTile(location, tileBase);
                     var fire = Instantiate(fireGameObject, transform);
                     fire.transform.position = FireTilemap.CellToWorld(location) + new Vector3(0.5f, 0.5f, 0);
-                    Debug.Log(location);
-
                 }
             }
         }
