@@ -16,6 +16,7 @@ public class Win : MonoBehaviour
             var seconds = (int) (time % 60);
             var minutes = (int) (time / 60);
             var newTime = minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString();
+            _didBeatHighScore = true;
             _message =
                 "You Had No Previous High Score \n" +
                 $"Your Time Was {newTime} And You Had {treesRemaining} Trees Remaining";
