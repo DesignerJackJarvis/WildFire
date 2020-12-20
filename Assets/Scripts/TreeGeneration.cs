@@ -7,6 +7,7 @@ public class TreeGeneration : MonoBehaviour
     public NotPlaceAble spawnAbleTiles;
     public int grassToTreeRatio;
     public GameObject tree;
+    public Tile treeTile;
     private int _spawnAbleCount;
     private List<Vector3Int> _spawnAblePlaces = new List<Vector3Int>();
     private List<Vector3Int> _alreadySpawnedPlaces = new List<Vector3Int>();
@@ -58,6 +59,25 @@ public class TreeGeneration : MonoBehaviour
             
             newTree.transform.position = position + new Vector3(0.5f, 0.5f, 0);
             _alreadySpawnedPlaces.Add(position);
+        }
+    }
+
+    public void TreeDefeat()
+    {
+        for (int i = 0; i < _alreadySpawnedPlaces.Count; i++)
+        {
+            var tile = SpreadingFire.FireTilemap.GetTile(_alreadySpawnedPlaces[i]);
+            if (tile != treeTile)
+            {
+                _alreadySpawnedPlaces.RemoveAt(i);
+            }
+        }
+
+        if (_alreadySpawnedPlaces.Count == 1)
+        {
+            FindObjectOfType<Lose>(true).gameObject.SetActive(true);
+            Time.timeScale = 0;
+            FindObjectOfType<Pause>().cantPause = true;
         }
     }
 }

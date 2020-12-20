@@ -13,6 +13,6 @@ public class CostUI : MonoBehaviour
 
     private void Update()
     {
-        _text.text = "Coins " + _placingTurret.money;
+        _text.text =  _placingTurret.money.ToString();
     }
 }
