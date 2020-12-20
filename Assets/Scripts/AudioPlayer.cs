@@ -11,7 +11,7 @@ public class AudioPlayer : MonoBehaviour
     {
         if (audioPlayer != null)
         {
-            Destroy(audioPlayer.gameObject);
+            Destroy(audioPlayer);
         }
 
         audioPlayer = this;
