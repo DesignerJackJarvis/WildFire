@@ -16,6 +16,13 @@ public class Fire : MonoBehaviour
                 var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
                 SpreadingFire.FireTilemap.SetTile(location, null);
                 Debug.Log("Fire was put out");
+                var random = Random.Range(0, 1.0f);
+                if (random < 0.05f)
+                {
+                    FindObjectOfType<PlacingTurret>().money += 50;
+                }
+                else if (random < 0.15f)
+                    FindObjectOfType<PlacingTurret>().money += 25;
                 Destroy(transform.parent.gameObject);
             }
         }

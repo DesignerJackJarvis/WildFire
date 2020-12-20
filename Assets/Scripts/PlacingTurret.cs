@@ -11,6 +11,9 @@ public class PlacingTurret : MonoBehaviour
     public Grid grid;
     public static Tilemap tilemap;
     public bool placeTurretMode = true;
+    public int money = 25;
+
+    private bool IsAffordable => objectToPlace.GetComponent<Cost>().cost <= money;
 
     private void Awake()
     {
@@ -34,8 +37,9 @@ public class PlacingTurret : MonoBehaviour
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             var worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             var position = grid.WorldToCell(worldPoint);
-            if (IsAvailable(tilemap.GetTile(position), SpreadingFire.FireTilemap.GetTile(position)))
+            if (IsAvailable(tilemap.GetTile(position), SpreadingFire.FireTilemap.GetTile(position)) && IsAffordable)
             {
+                money -= objectToPlace.GetComponent<Cost>().cost;
                 var instantiate = Instantiate(objectToPlace, tilemap.transform);
                 var cellToWorld = grid.CellToWorld(position);
                 SpreadingFire.FireTilemap.SetTile(position, turretTile);

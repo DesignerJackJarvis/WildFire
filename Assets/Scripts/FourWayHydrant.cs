@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
-public class StationaryTower : MonoBehaviour, IDamageAble
+public class FourWayHydrant: MonoBehaviour, IDamageAble
 {
     public int attackInterval;
     public float damage;
     private int _tick;
-    public Vector3 direction;
     public float range;
     public float health = 50;
     public float Health
@@ -26,15 +27,16 @@ public class StationaryTower : MonoBehaviour, IDamageAble
     {
         if (_tick % attackInterval == 0)
         {
-            var ray = Physics2D.Raycast(transform.position, direction, range);
-            GetComponentInChildren<LineRenderer>().SetPositions(new []{transform.position, transform.position + direction * range});
+            List<RaycastHit2D> raycastHit2Ds = new List<RaycastHit2D>();
+            raycastHit2Ds.Add(Physics2D.Raycast(transform.position, Vector2.down, range));
+            raycastHit2Ds.Add(Physics2D.Raycast(transform.position, Vector2.up, range));
+            raycastHit2Ds.Add(Physics2D.Raycast(transform.position, Vector2.right, range));
+            raycastHit2Ds.Add(Physics2D.Raycast(transform.position, Vector2.left, range));
+            foreach (var raycastHit2D in raycastHit2Ds.Where(raycastHit2D => raycastHit2D.collider != null))
             {
-                if (ray.collider != null)
+                if (raycastHit2D.collider.TryGetComponent<Fire>(out var fire)) 
                 {
-                    if (ray.collider.TryGetComponent<Fire>(out var fire))
-                    {
-                        fire.Health -= damage;
-                    }
+                    fire.Health -= damage;
                 }
             }
         }

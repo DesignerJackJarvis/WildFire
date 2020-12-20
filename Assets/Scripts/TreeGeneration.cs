@@ -22,6 +22,12 @@ public class TreeGeneration : MonoBehaviour
             {
                 return false;
             }
+
+            var location = SpreadingFire.FireTilemap.WorldToCell(_tilemap.CellToWorld(position));
+            if (SpreadingFire.FireTilemap.GetTile(location) != null)
+            {
+                return false;
+            }
         }
 
         return true;

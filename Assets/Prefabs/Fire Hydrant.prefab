@@ -139,6 +139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3190335613094315801}
   - component: {fileID: 1317308911}
+  - component: {fileID: 2084763558778756037}
   m_Layer: 0
   m_Name: Fire Hydrant
   m_TagString: Untagged
@@ -179,6 +180,19 @@ MonoBehaviour:
   direction: {x: 0, y: -1, z: 0}
   range: 1
   health: 15
+--- !u!114 &2084763558778756037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496907185632401345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89afdd8b0edd46fc9e3e619e167ab5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 25
 --- !u!1 &3856768996244784809
 GameObject:
   m_ObjectHideFlags: 0
