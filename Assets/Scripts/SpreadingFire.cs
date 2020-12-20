@@ -46,6 +46,26 @@ public class SpreadingFire : MonoBehaviour
     {
         _maxBorder = PlacingTurret.tilemap.cellBounds.max;
         _minBorder = PlacingTurret.tilemap.cellBounds.min;
+        if (FireTilemap.ContainsTile(tileBase))
+        {
+            var origin = FireTilemap.origin;
+            var fireTiles = new List<Vector3Int>();
+            for (var i = 0; i < FireTilemap.size.x; i++)
+            {
+                for (var e = 0; e < FireTilemap.size.y; e++) 
+                {
+                    var tile = FireTilemap.GetTile(new Vector3Int(origin.x + i, origin.y + e, 0));
+                    if (tile == null || tile != tileBase) continue;
+                    fireTiles.Add(new Vector3Int(origin.x + i, origin.y + e, 0));
+                }
+            }
+
+            foreach (var fireTile in fireTiles)
+            {
+                var fire = Instantiate(fireGameObject, transform);
+                fire.transform.position = FireTilemap.CellToWorld(fireTile) + new Vector3(0.5f, 0.5f, 0);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -62,6 +82,13 @@ public class SpreadingFire : MonoBehaviour
                     if (tile == null || tile != tileBase) continue;
                     fireTiles.Add(new Vector3Int(origin.x + i, origin.y + e, 0));
                 }
+            }
+
+            if (fireTiles.Count == 0)
+            {
+                FindObjectOfType<Win>(true).gameObject.SetActive(true);
+                Time.timeScale = 0;
+                FindObjectOfType<Pause>().cantPause = true;
             }
 
             foreach (var fireTile in fireTiles)

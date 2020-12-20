@@ -9,5 +9,6 @@ public class RandomizeLevel : MonoBehaviour
     {
         var randomNum = Random.Range(0, grid.Length);
         Instantiate(grid[randomNum]);
+        Time.timeScale = 1;
     }
 }
