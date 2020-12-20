@@ -97,13 +97,13 @@ public class SpreadingFire : MonoBehaviour
                 var location = new Vector3Int();
                 if (Random.Range(0f, 1f) < chanceToSpread / fireTiles.Count + spreadToFireBias)
                 {
+                    if (!OneAvailableAround(fireTile)) continue;
                     do
                     {
                         location = new Vector3Int(Random.Range(fireTile.x - 1, fireTile.x + 2),
                             Random.Range(fireTile.y - 1, fireTile.y + 2), fireTile.z);
-                    } while (!CanSpawn(location) || location.x != fireTile.x && location.y != fireTile.y);
-
-                    if (!IsAvailable(FireTilemap.GetTile(location), PlacingTurret.tilemap.GetTile(location))) continue;
+                    } while (!CanSpawn(location) || location.x != fireTile.x && location.y != fireTile.y || !IsAvailable(FireTilemap.GetTile(location), PlacingTurret.tilemap.GetTile(location)));
+                    
                     if (IsDamageAble(FireTilemap.GetTile(location)))
                     {
                         var grid = FindObjectOfType<Grid>();
@@ -122,6 +122,16 @@ public class SpreadingFire : MonoBehaviour
             }
         }
         _tick++;
+    }
+
+    bool OneAvailableAround(Vector3Int position)
+    {
+        List<Vector3Int> positions = new List<Vector3Int>();
+        positions.Add(position + Vector3Int.down);
+        positions.Add(position + Vector3Int.up);
+        positions.Add(position + Vector3Int.left);
+        positions.Add(position + Vector3Int.right);
+        return positions.Any(pos => IsAvailable(FireTilemap.GetTile(pos), PlacingTurret.tilemap.GetTile(pos)));
     }
 }
 
