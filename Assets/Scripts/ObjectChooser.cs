@@ -6,6 +6,7 @@ public class ObjectChooser : MonoBehaviour
 
     public void ChoseObject(int objectToChose)
     {
+        FindObjectOfType<PlacingTurret>().placeTurretMode = objectToChose != 2;
         FindObjectOfType<PlacingTurret>().objectToPlace = towers.objects[objectToChose];
     }
 }
