@@ -37,7 +37,7 @@ public class PlacingTurret : MonoBehaviour
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         var worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
         var position = grid.WorldToCell(worldPoint);
-        if (IsAvailable(tilemap.GetTile(position), SpreadingFire.FireTilemap.GetTile(position)))
+        if (IsAvailable(tilemap.GetTile(position), SpreadingFire.FireTilemap.GetTile(position)) && IsAffordable)
         {
             currentPlaceable.SetActive(true);
             currentPlaceable.transform.position = position + new Vector3(0.5f, 0.5f,0); 
