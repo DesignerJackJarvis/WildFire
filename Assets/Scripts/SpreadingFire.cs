@@ -87,6 +87,7 @@ public class SpreadingFire : MonoBehaviour
             if (fireTiles.Count == 0)
             {
                 FindObjectOfType<Win>(true).gameObject.SetActive(true);
+                FindObjectOfType<Win>().DisplayHighScore();
                 Time.timeScale = 0;
                 FindObjectOfType<Pause>().cantPause = true;
             }

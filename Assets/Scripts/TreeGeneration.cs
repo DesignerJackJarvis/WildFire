@@ -13,8 +13,20 @@ public class TreeGeneration : MonoBehaviour
     public event Action<int> ONTreeDead;
     private int _spawnAbleCount;
     private List<Vector3Int> _spawnAblePlaces = new List<Vector3Int>();
-    private List<Vector3Int> _alreadySpawnedPlaces = new List<Vector3Int>();
+    public List<Vector3Int> _alreadySpawnedPlaces = new List<Vector3Int>();
     private Tilemap _tilemap;
+
+    public int TreesRemaining
+    {
+        get
+        {
+            if (_alreadySpawnedPlaces.Count == _spawnAbleCount / grassToTreeRatio)
+            {
+                return _alreadySpawnedPlaces.Count;
+            }
+            return _alreadySpawnedPlaces.Count - 1;
+        }
+    }
 
     bool SpawnAble(Vector3Int position)
     {

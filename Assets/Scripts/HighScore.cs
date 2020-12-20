@@ -3,7 +3,7 @@
 public class HighScore : MonoBehaviour
 {
     public int treesRemaining;
-    public float highScore;
+    public float time;
     public void Save(float seconds, int treesRemaining)
     {
         PlayerPrefs.SetFloat($"{gameObject.name}_HighScore", seconds);
@@ -12,7 +12,7 @@ public class HighScore : MonoBehaviour
 
     public HighScore Load()
     {
-        highScore = PlayerPrefs.GetFloat($"{gameObject.name}_HighScore", 0);
+        time = PlayerPrefs.GetFloat($"{gameObject.name}_HighScore", 0);
         treesRemaining = PlayerPrefs.GetInt($"{gameObject.name}_TreesRemaining", 0);
         return this;
     }

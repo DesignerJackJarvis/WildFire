@@ -9,7 +9,8 @@ public class ScoreUI : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<TreeGeneration>().ONTreeDead += delegate(int i) {time.Invoke(i.ToString()); };
+        treesChange.Invoke("Trees Remaining "+FindObjectOfType<TreeGeneration>()._alreadySpawnedPlaces.Count);
+        FindObjectOfType<TreeGeneration>().ONTreeDead += delegate(int i) {treesChange.Invoke("Trees Remaining "+i); };
         _timer = FindObjectOfType<Timer>();
     }
 
@@ -17,6 +18,6 @@ public class ScoreUI : MonoBehaviour
     {
         var seconds = (int) (_timer.time % 60);
         var minutes = (int) (_timer.time / 60);
-        treesChange.Invoke($"{minutes}:{seconds}");
+        time.Invoke(minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString());
     }
 }
