@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -7,6 +6,7 @@ public class PlacingTurret : MonoBehaviour
 {
     public NotPlaceAble notPlaceableTiles;
     public TileBase turretTile;
+    public Tilemap tileMap;
     public GameObject objectToPlace;
     public Grid grid;
     public static Tilemap tilemap;
@@ -32,10 +32,11 @@ public class PlacingTurret : MonoBehaviour
     
     private void Update()
     {
+        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        var worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
+        
         if (placeTurretMode && Input.GetMouseButtonDown(0))
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             var position = grid.WorldToCell(worldPoint);
             if (IsAvailable(tilemap.GetTile(position), SpreadingFire.FireTilemap.GetTile(position)) && IsAffordable)
             {
@@ -49,8 +50,6 @@ public class PlacingTurret : MonoBehaviour
         
         else if (Input.GetMouseButtonDown(0))
         {
-            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             if (IsAffordable)
             {
                 money -= objectToPlace.GetComponent<Cost>().cost;

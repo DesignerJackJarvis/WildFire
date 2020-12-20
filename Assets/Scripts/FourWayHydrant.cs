@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FourWayHydrant: MonoBehaviour, IDamageAble
 {
@@ -12,6 +13,7 @@ public class FourWayHydrant: MonoBehaviour, IDamageAble
     private SpriteRenderer _spriteRenderer;
     private Color _originalColor;
     private float _time;
+    public UnityEvent onDefeat;
     public float Health
     {
         get => health;
@@ -21,6 +23,7 @@ public class FourWayHydrant: MonoBehaviour, IDamageAble
             _time = 1;
             if (health <= 0)
             {
+                onDefeat.Invoke();
                 var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
                 SpreadingFire.FireTilemap.SetTile(location, null);
                 Destroy(transform.gameObject);

@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class Fire : MonoBehaviour
 {
     [SerializeField] private float health = 10;
+    public UnityEvent onDefeat;
 
     public float Health
     {
@@ -13,6 +15,7 @@ public class Fire : MonoBehaviour
             Debug.Log("Fire was hit");
             if (health <= 0)
             {
+                onDefeat.Invoke();
                 var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
                 SpreadingFire.FireTilemap.SetTile(location, null);
                 Debug.Log("Fire was put out");

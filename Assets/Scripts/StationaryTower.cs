@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class StationaryTower : MonoBehaviour, IDamageAble
 {
@@ -11,6 +12,7 @@ public class StationaryTower : MonoBehaviour, IDamageAble
     private SpriteRenderer _spriteRenderer;
     private Color _originalColor;
     private float _time;
+    public UnityEvent onDefeat;
     public float Health
     {
         get => health;
@@ -20,6 +22,7 @@ public class StationaryTower : MonoBehaviour, IDamageAble
             _time = 1.0f;
             if (health <= 0)
             {
+                onDefeat.Invoke();
                 var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
                 SpreadingFire.FireTilemap.SetTile(location, null);
                 Destroy(transform.gameObject);
