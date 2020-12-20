@@ -206,18 +206,18 @@ PrefabInstance:
     - target: {fileID: 1775133503546700036, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
       propertyPath: m_TileSpriteArray.Array.data[0].m_Data
       value: 
-      objectReference: {fileID: 21300000, guid: c2349da2c11db794289121fea84843b1, type: 3}
+      objectReference: {fileID: 21300000, guid: 42ea11e055f2a4886b9677f317f8c9f4, type: 3}
     - target: {fileID: 1775133503546700036, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775133503546700036, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775133503546700036, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.g
-      value: 0.48956752
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775133503546700036, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
       propertyPath: m_TileColorArray.Array.data[1].m_Data.r
@@ -1959,7 +1959,8 @@ PrefabInstance:
       propertyPath: minBorder.y
       value: -5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 176333154103807538, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca6a8103990c77c4595d976dbf5c83c0, type: 3}
 --- !u!4 &678428963 stripped
 Transform:
