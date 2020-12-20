@@ -46,5 +46,16 @@ public class PlacingTurret : MonoBehaviour
                 instantiate.transform.position = cellToWorld + new Vector3(0.5f, 0.5f); 
             }
         }
+        
+        else if (Input.GetMouseButtonDown(0))
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
+            if (IsAffordable)
+            {
+                money -= objectToPlace.GetComponent<Cost>().cost;
+                objectToPlace.GetComponent<WaterDrop>().Attack(worldPoint);
+            }
+        }
     }
 }
