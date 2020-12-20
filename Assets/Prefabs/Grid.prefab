@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 2306727328242843791}
   - component: {fileID: 448243897}
   - component: {fileID: 8961881429130754246}
+  - component: {fileID: 2926004582688794853}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -194,6 +195,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: ActionBar
+--- !u!114 &2926004582688794853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306727328242843776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de187754e9597f348976b5ba409884b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerBreak: {fileID: 8300000, guid: 91f2f6fb544b44d4b9498f790b7a4a04, type: 3}
+  extinguish: {fileID: 8300000, guid: 1bb30e767948ba14a949d6053f828118, type: 3}
 --- !u!1 &2306727328980216045
 GameObject:
   m_ObjectHideFlags: 0
