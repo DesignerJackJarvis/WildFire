@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class Fire : MonoBehaviour
 {
     [SerializeField] private float health = 10;
     public UnityEvent onDefeat;
+
+    private void Start()
+    {
+        onDefeat.AddListener(AudioPlayer.PlayExtinguish);
+    }
 
     public float Health
     {
