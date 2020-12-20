@@ -23,6 +23,8 @@ public class Fire : MonoBehaviour
                 }
                 else if (random < 0.15f)
                     FindObjectOfType<PlacingTurret>().money += 25;
+                else
+                    FindObjectOfType<PlacingTurret>().money += 5;
                 Destroy(transform.parent.gameObject);
             }
         }

@@ -9,12 +9,16 @@ public class FourWayHydrant: MonoBehaviour, IDamageAble
     private int _tick;
     public float range;
     public float health = 50;
+    private SpriteRenderer _spriteRenderer;
+    private Color _originalColor;
+    private float _time;
     public float Health
     {
         get => health;
         set
         {
             health = value;
+            _time = 1;
             if (health <= 0)
             {
                 var location = SpreadingFire.FireTilemap.WorldToCell(transform.position - new Vector3(0.5f, 0.5f, 0));
@@ -23,6 +27,13 @@ public class FourWayHydrant: MonoBehaviour, IDamageAble
             }
         }
     }
+    
+    private void Start()
+    {
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        _originalColor = _spriteRenderer.color;
+    }
+    
     private void FixedUpdate()
     {
         if (_tick % attackInterval == 0)
@@ -41,6 +52,14 @@ public class FourWayHydrant: MonoBehaviour, IDamageAble
             }
         }
         _tick++;
+    }
+    
+    private void Update()
+    {
+        _spriteRenderer.color = Color.Lerp(_originalColor, Color.red, _time);
+        {
+            _time -= Time.deltaTime;
+        }
     }
 
     public bool TakeDamage(float damage)
