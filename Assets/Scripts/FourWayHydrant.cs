@@ -33,6 +33,7 @@ public class FourWayHydrant: MonoBehaviour, IDamageAble
     
     private void Start()
     {
+        onDefeat.AddListener(AudioPlayer.PlayTowerBreak);
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _originalColor = _spriteRenderer.color;
     }

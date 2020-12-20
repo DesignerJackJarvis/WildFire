@@ -32,6 +32,7 @@ public class StationaryTower : MonoBehaviour, IDamageAble
     
     private void Start()
     {
+        onDefeat.AddListener(AudioPlayer.PlayTowerBreak);
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _originalColor = _spriteRenderer.color;
     }
