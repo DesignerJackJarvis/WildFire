@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public class TreeGeneration : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class TreeGeneration : MonoBehaviour
     public int grassToTreeRatio;
     public GameObject tree;
     public Tile treeTile;
+    public event Action<int> ONTreeDead;
     private int _spawnAbleCount;
     private List<Vector3Int> _spawnAblePlaces = new List<Vector3Int>();
     private List<Vector3Int> _alreadySpawnedPlaces = new List<Vector3Int>();
@@ -42,7 +45,6 @@ public class TreeGeneration : MonoBehaviour
             {
                 var tile = _tilemap.GetTile(new Vector3Int(_tilemap.origin.x + i, _tilemap.origin.y + e, 0));
                 if (tile == null || tile != spawnAbleTiles.tiles[0] && tile != spawnAbleTiles.tiles[1]) continue;
-                Debug.Log(_spawnAbleCount);
                 _spawnAbleCount++;
                 _spawnAblePlaces.Add(new Vector3Int(_tilemap.origin.x + i, _tilemap.origin.y + e, 0));
             }
@@ -72,6 +74,7 @@ public class TreeGeneration : MonoBehaviour
                 _alreadySpawnedPlaces.RemoveAt(i);
             }
         }
+        ONTreeDead?.Invoke(_alreadySpawnedPlaces.Count - 1);
 
         if (_alreadySpawnedPlaces.Count == 1)
         {
