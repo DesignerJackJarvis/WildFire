@@ -39,7 +39,7 @@ public class PlacingTurret : MonoBehaviour
         var position = grid.WorldToCell(worldPoint);
         if (!placeTurretMode)
         {
-            if (tilemap.GetTile(position) != null && SpreadingFire.FireTilemap.GetTile(position) != null &&
+            if (IsAffordable && tilemap.GetTile(position) != null || SpreadingFire.FireTilemap.GetTile(position) != null &&
                 IsAffordable)
             {
                 currentPlaceable.SetActive(true);

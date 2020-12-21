@@ -18,6 +18,6 @@ public class ScoreUI : MonoBehaviour
     {
         var seconds = (int) (_timer.time % 60);
         var minutes = (int) (_timer.time / 60);
-        time.Invoke(minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString());
+        time.Invoke(minutes != 0 ? $"{minutes}:{seconds:00}" : seconds.ToString());
     }
 }

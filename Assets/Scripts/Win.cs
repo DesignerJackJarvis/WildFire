@@ -15,7 +15,7 @@ public class Win : MonoBehaviour
         {
             var seconds = (int) (time % 60);
             var minutes = (int) (time / 60);
-            var newTime = minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString();
+            var newTime = minutes != 0 ? $"{minutes}:{seconds:00}" : seconds.ToString("00");
             _didBeatHighScore = true;
             _message =
                 "You Had No Previous High Score \n" +
@@ -25,10 +25,10 @@ public class Win : MonoBehaviour
         {
             var seconds = (int) (time % 60);
             var minutes = (int) (time / 60);
-            var newTime = minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString();
+            var newTime = minutes != 0 ? $"{minutes}:{seconds:00}" : seconds.ToString("00");
             var oldSeconds = (int) (highScore.time % 60);
             var oldMinutes = (int) (highScore.time / 60);
-            var oldTime = minutes != 0 ? $"{oldMinutes}:{oldSeconds}" : oldSeconds.ToString();
+            var oldTime = minutes != 0 ? $"{oldMinutes}:{oldSeconds:00}" : oldSeconds.ToString("00");
             _message =
                 $"You Did Not Beat Your High Score Of {oldTime} And {highScore.treesRemaining} Trees Remaining \n" +
                 $"Your Time Was {newTime} And You Had {treesRemaining} Trees Remaining";
@@ -37,10 +37,10 @@ public class Win : MonoBehaviour
         {
             var seconds = (int) (time % 60);
             var minutes = (int) (time / 60);
-            var newTime = minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString();
+            var newTime = minutes != 0 ? $"{minutes}:{seconds:00}" : seconds.ToString("00");
             var oldSeconds = (int) (highScore.time % 60);
             var oldMinutes = (int) (highScore.time / 60);
-            var oldTime = minutes != 0 ? $"{oldMinutes}:{oldSeconds}" : oldSeconds.ToString();
+            var oldTime = minutes != 0 ? $"{oldMinutes}:{oldSeconds:00}" : oldSeconds.ToString("00");
             _didBeatHighScore = true;
             _message =
                 $"You Did Beat Your High Score Of {oldTime} And {highScore.treesRemaining} Trees Remaining \n" +
@@ -50,10 +50,10 @@ public class Win : MonoBehaviour
         {
             var seconds = (int) (time % 60);
             var minutes = (int) (time / 60);
-            var newTime = minutes != 0 ? $"{minutes}:{seconds}" : seconds.ToString();
+            var newTime = minutes != 0 ? $"{minutes}:{seconds:00}" : seconds.ToString("00");
             var oldSeconds = (int) (highScore.time % 60);
             var oldMinutes = (int) (highScore.time / 60);
-            var oldTime = minutes != 0 ? $"{oldMinutes}:{oldSeconds}" : oldSeconds.ToString();
+            var oldTime = minutes != 0 ? $"{oldMinutes}:{oldSeconds:00}" : oldSeconds.ToString("00");
             _didBeatHighScore = true;
             _message =
                 $"You Did Beat Your High Score Of {oldTime} And {highScore.treesRemaining} Trees Remaining \n" +

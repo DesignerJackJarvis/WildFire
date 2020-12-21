@@ -583,9 +583,9 @@ MonoBehaviour:
   tileBase: {fileID: 11400000, guid: 0a7d92e4a3e10ef45b22205d431424c1, type: 2}
   notBurnable: {fileID: 11400000, guid: fdb125e10115eff4181674064949d792, type: 2}
   damageAbleTiles: {fileID: 11400000, guid: 351e89e03411bd244b0e6f8e65569c15, type: 2}
-  chanceToSpread: 0.1
+  chanceToSpread: 0.5
   spreadRate: 100
-  spreadToFireBias: 10
+  spreadToFireBias: 0.1
   damage: 5
 --- !u!82 &1704167782718886937
 AudioSource:
