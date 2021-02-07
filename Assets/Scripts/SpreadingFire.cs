@@ -17,7 +17,7 @@ public class SpreadingFire : MonoBehaviour
     public float spreadToFireBias = 0.5f;
     public float damage = 5;
     private Vector3Int _maxBorder, _minBorder;
-    private int _tick;
+    private int _tick = 1;
 
     private bool CanSpawn(Vector3Int location)
     {
@@ -38,13 +38,10 @@ public class SpreadingFire : MonoBehaviour
     {
         return damageAbleTiles.tiles.Any(tile => tile == tileBase);
     }
+
     private void Awake()
     {
         FireTilemap = GetComponent<Tilemap>();
-    }
-
-    private void Start()
-    {
         _maxBorder = PlacingTurret.tilemap.cellBounds.max;
         _minBorder = PlacingTurret.tilemap.cellBounds.min;
         if (FireTilemap.ContainsTile(tileBase))

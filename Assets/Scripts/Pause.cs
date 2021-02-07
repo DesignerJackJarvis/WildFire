@@ -16,10 +16,10 @@ public class Pause : MonoBehaviour
     private void TogglePause()
     {
         if (cantPause) return;
-        Time.timeScale = Time.timeScale != 1 ? 1 : 0;
+        Time.timeScale = Time.timeScale < 0.99f ? 1 : 0;
         pauseMenu.SetActive(!pauseMenu.activeSelf);
-        var audioListener = FindObjectOfType<AudioListener>(true);
-        audioListener.enabled = !audioListener.enabled;
+        /*var audioListener = FindObjectOfType<AudioListener>(true);
+        audioListener.enabled = !audioListener.enabled;*/
     }
     
     public void ResumeGame()
@@ -28,6 +28,12 @@ public class Pause : MonoBehaviour
     }
 
     public void RestartGame()
+    {
+        RandomizeLevel.restart = true;
+        SceneManager.LoadScene("Randomised Levels");
+    }
+
+    public void RestartAnyLevel()
     {
         SceneManager.LoadScene("Randomised Levels");
     }
