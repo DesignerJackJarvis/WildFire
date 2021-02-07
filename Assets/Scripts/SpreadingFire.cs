@@ -86,6 +86,11 @@ public class SpreadingFire : MonoBehaviour
             {
                 FindObjectOfType<Win>(true).gameObject.SetActive(true);
                 FindObjectOfType<Win>().DisplayHighScore();
+                var gamePlayMusics = FindObjectsOfType<GamePlayMusic>();
+                foreach (var music in gamePlayMusics)
+                {
+                    music.gameObject.SetActive(false);
+                }
                 Time.timeScale = 0;
                 FindObjectOfType<Pause>().cantPause = true;
             }

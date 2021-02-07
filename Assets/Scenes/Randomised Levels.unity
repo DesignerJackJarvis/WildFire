@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 533630162}
   - component: {fileID: 533630161}
+  - component: {fileID: 533630163}
   m_Layer: 0
   m_Name: FireBackground
   m_TagString: Untagged
@@ -250,6 +251,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &533630163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533630160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ec5221c487cb47a6669a297d86468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1535202386
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138387895}
   - component: {fileID: 2138387894}
+  - component: {fileID: 2138387896}
   m_Layer: 0
   m_Name: BackgroundMusic
   m_TagString: Untagged
@@ -515,3 +529,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138387896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138387893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73ec5221c487cb47a6669a297d86468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
